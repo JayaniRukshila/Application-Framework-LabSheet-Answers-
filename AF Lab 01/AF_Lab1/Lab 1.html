@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AF_Lab 01</title>
+
+    <script type="text/javascript">
+
+        // --- Lab Sheet 01 ---
+
+        // Q1 - Calling the second function passing the first function as the argument
+       function printHello() {
+            console.log("Hello World !!!")
+       }
+
+        function print2(data) {
+            data();
+        }
+        print2(printHello);
+
+        // Q2 -  create JSON like JavaScript object and add properties and functions to the object
+
+   /* var studentInfo = {
+         firstName: "Jayani",
+         lastName: "Rukshila",
+         status: "SE - Undergraduate",
+         getAcademicYear: function(year) {
+             console.log("Academic year is " + year);
+         }
+     }
+
+     var data = {
+         firstName: "Jayani",
+         lastName: "Rukshila",
+         status: "SE - Undergraduate"
+     }
+     var userInfo = JSON.parse(data);
+
+     function Student(fn, ln, st, year) {
+         var fName = fn;
+         var lName = ln;
+         var status = st;
+
+         console.log(fn + " " + ln + " is a " + st + "\r");
+         year(3);
+     }  */
+        function runner(object){
+            object.funct(object.msg)
+        }
+
+        var obj = {
+            "msg" : "hello world",
+            "funct" : (msg) => {
+                console.log(msg)
+            }
+        }
+        runner(obj)
+
+        // Q3 - use 'this' keyword
+        var vehicleName = "car"
+
+        function printVehicleName(){
+            console.log(this.vehicleName)
+        }
+
+        var Vehicle = {
+            vehicleName : "van",
+            getVehicleName : printVehicleName
+        }
+
+        Vehicle.getVehicleName()
+        printVehicleName()
+
+        // Q4 - use 'closure'
+        function calc(tax){
+
+            function taxAmount(amount){
+                return amount + tax;
+            }
+            return taxAmount;
+        }
+
+        var am = calc(10);
+
+        console.log(am(5));
+
+        // Q5 - function to call GitHub API (https://api.github.com/users) and get users and return the users to the caller
+        function githubAPI(callback){
+            $.getJSON("https://api.github.com/users", callback);
+        }
+
+        function userEx(data){
+            data.forEach(element => {
+                if(element.id == 1){
+                    console.log(element.url)
+                }
+            });
+        }
+
+        githubAPI(userEx);
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
