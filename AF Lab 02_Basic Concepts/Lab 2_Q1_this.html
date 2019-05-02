@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AF Lab 2_Q 1</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        // Lab Sheet 2 --------------------
+
+        // Question 1
+        var vehicleName = 'Toyota';
+
+        function printVehicleNameOuter() {
+            console.log(this.vehicleName);
+        }
+        console.log(this);
+        printVehicleNameOuter();                 // call function
+
+        var vehicle = {
+            vehicleName :'Nissan',
+          /*  printVehicleNameInner : printVehicleNameOuter
+        }
+        vehicle.printVehicleNameInner()  */               // code upto this and check output
+            printVehicleNameInner: function() {
+                return function () {
+                    console.log(this.vehicleName);
+                }
+            }
+        };
+        var execute = vehicle.printVehicleNameInner();
+        execute();
+
+        execute.call(vehicle);        // call method
+
+        var execute = vehicle.printVehicleNameInner().bind(vehicle);
+        execute();
+
+
+
+
+
+    </script>
+
+</body>
+</html>

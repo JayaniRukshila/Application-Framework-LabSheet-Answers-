@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AF Lab 2_Q 2</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function taxCalculator(tax) {
+            var taxPercentage = tax;
+            return function (amount) {
+                return amount * tax / 100 ;
+            }
+        }
+
+        var calculator = taxCalculator(10);
+        console.log(calculator(90));
+
+    </script>
+
+</body>
+</html>
