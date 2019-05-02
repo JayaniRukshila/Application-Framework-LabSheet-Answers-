@@ -1,0 +1,14 @@
+{
+  "name": "af_lab_5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serves.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jayani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
