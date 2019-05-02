@@ -1,0 +1,32 @@
+package com.example.demo.domain;
+
+import java.sql.Date;
+
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Document("message")
+public class Message {
+	
+	@Id
+	private String id;
+	
+	@NotEmpty
+	private String message;
+	
+	@JsonIgnore
+	private boolean deleted;
+	
+	@CreatedDate
+	private Date createdAt;
+	
+	@LastModifiedDate
+	private Date updatedAt;
+
+}
